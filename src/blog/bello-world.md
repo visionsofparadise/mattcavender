@@ -10,7 +10,7 @@ I made a blog. This is it.
 The design is inspired by [NFOs](http://artscene.textfiles.com/asciiart/NFOS/), [GameFAQs walkthroughs](https://gamefaqs.gamespot.com/gba/562260-onimusha-tactics/faqs/51373) and [ASCII art](http://artscene.textfiles.com/asciiart/). 
 
 # For The Nerds
-Made with [GatsbyJS](https://www.gatsbyjs.com/), uses Github Actions to build and hosted on S3. Planning to make it just HTML and txt files someday because, you know, fuck the system and all that. 
+Made with [GatsbyJS](https://www.gatsbyjs.com/), uses Github Actions to build and hosted on S3. Planning to make it just HTML and txt files someday because, you know, fuck the system and all that. 
 
 ## Accessibility
 You may be wondering how the design can be accessible to screen readers with so much decorative text. The "aria-hidden" tag prevents that text from being read.
@@ -38,6 +38,6 @@ In the future I'll be writing blog posts on...
 - Chess Study
 - And maybe other stuff 
 
-If any of that interests you, you can subscribe via [RSS](https://mattcavender.com/rss.xml).  
+If any of that interests you, you can subscribe via [RSS](https://mattcavender.com/rss.xml). 
 
 Later buckos!
