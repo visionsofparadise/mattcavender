@@ -1,0 +1,119 @@
+html {
+  background: linear-gradient(230deg, #18191a, #242526);
+  background-size: 600% 600%;
+  -webkit-animation: GradientFade 30s ease infinite;
+  -moz-animation: GradientFade 30s ease infinite;
+  -o-animation: GradientFade 30s ease infinite;
+  animation: GradientFade 30s ease infinite;
+  animation: GradientFade 30s ease infinite;
+  font: 14px "Courier New", "Courier", monospace;
+  color: #e4e6eb;
+}
+
+@-webkit-keyframes GradientFade {
+  0% {
+    background-position: 99% 0%;
+  }
+  50% {
+    background-position: 2% 100%;
+  }
+  100% {
+    background-position: 99% 0%;
+  }
+}
+@-moz-keyframes GradientFade {
+  0% {
+    background-position: 99% 0%;
+  }
+  50% {
+    background-position: 2% 100%;
+  }
+  100% {
+    background-position: 99% 0%;
+  }
+}
+@-o-keyframes GradientFade {
+  0% {
+    background-position: 99% 0%;
+  }
+  50% {
+    background-position: 2% 100%;
+  }
+  100% {
+    background-position: 99% 0%;
+  }
+}
+@keyframes GradientFade {
+  0% {
+    background-position: 99% 0%;
+  }
+  50% {
+    background-position: 2% 100%;
+  }
+  100% {
+    background-position: 99% 0%;
+  }
+}
+
+body {
+  max-width: 600px;
+  padding: 5px;
+  margin: auto;
+  text-align: center;
+}
+
+.postbody {
+  text-align: left;
+  line-height: 125%;
+}
+
+a {
+  color: #fd8c84;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+li {
+  padding: 0;
+}
+
+a:hover {
+  color: darksalmon;
+}
+
+a:visited {
+  color: #ff6056;
+}
+
+.muted {
+  color: #555555;
+}
+
+.widescreen {
+  display: initial;
+}
+
+.thinscreen {
+  display: none;
+}
+
+.hidden {
+  display: none;
+}
+
+@media only screen and (max-width: 600px) {
+  .widescreen {
+    display: none;
+  }
+
+  .thinscreen {
+    display: initial;
+  }
+}
