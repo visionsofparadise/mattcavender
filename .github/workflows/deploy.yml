@@ -1,0 +1,29 @@
+name: Build and Deploy
+on:
+  push:
+    branches: main
+jobs:
+  build-and-deploy:
+    name: Build and deploy Gatsby site
+    runs-on: ubuntu-latest
+    env:
+      S3_BUCKET_NAME: ${{ secrets.S3_BUCKET_NAME }}
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      SECRET_ACCESS_KEY: ${{ secrets.SECRET_ACCESS_KEY }}
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout
+
+      - name: Install Node.js
+        uses: actions/setup-node
+        with:
+          node-version: '13.x'
+
+      - name: Install
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+        
+      - name: Deploy
+        run: npm run deploy
