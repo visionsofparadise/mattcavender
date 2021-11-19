@@ -13,7 +13,7 @@
 		"start": "gatsby develop",
 		"build": "gatsby build",
 		"serve": "gatsby serve",
-		"deploy": "gatsby build && gatsby-plugin-s3 deploy --yes",
+		"deploy": "gatsby-plugin-s3 deploy --yes",
 		"clean": "gatsby clean"
 	},
 	"dependencies": {
