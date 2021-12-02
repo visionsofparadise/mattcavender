@@ -17,7 +17,7 @@ export default function BlogPost({ data }) {
       <main>
         <title>{post.frontmatter.title} | mattcavender.com</title>
 
-        <Link to="../archive" style={{ fontSize: 50 + "%", textAlign: "left" }}>
+        <Link to="../archive">
           <BloodyText text="Back" />
         </Link>
 
@@ -64,7 +64,7 @@ export default function BlogPost({ data }) {
 
         <Spacer />
 
-        <div style={{ textAlign: "left" }}>{renderAst(post.htmlAst)}</div>
+        <div className="postbody">{renderAst(post.htmlAst)}</div>
 
         <Spacer />
       </main>

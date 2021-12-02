@@ -130,7 +130,7 @@ module.exports = {
         short_name: "Matt Cavender",
         start_url: "/",
         background_color: "#18191a",
-        theme_color: "#fd8c84",
+        theme_color: "#18191a",
         display: "standalone",
         icon: "src/images/favicon.png",
       },

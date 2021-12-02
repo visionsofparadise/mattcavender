@@ -38,13 +38,7 @@ export default function Layout({ children }) {
         </span>
       </pre>
       <pre className="thinscreen">
-        <span className="muted">
-          <Ah>ضؤؤؤ</Ah>
-        </span>
         [ <a href="mailto:s5t0js8n@anonaddy.me">s5t0js8n@anonaddy.me</a> ]
-        <span className="muted">
-          <Ah>ؤؤؤ·</Ah>
-        </span>
       </pre>
 
       <Spacer />

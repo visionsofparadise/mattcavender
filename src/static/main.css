@@ -57,14 +57,13 @@ html {
 
 body {
   max-width: 600px;
-  padding: 5px;
+  padding: 20px;
   margin: auto;
   text-align: center;
 }
 
 .postbody {
   text-align: left;
-  line-height: 125%;
 }
 
 img {
@@ -333,4 +332,25 @@ pre > code.highlight {
     rgba(221, 103, 44, 0.2) 70%,
     rgba(221, 103, 44, 0)
   );
+}
+
+/* width */
+pre::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+/* Track */
+pre::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+pre::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+pre::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

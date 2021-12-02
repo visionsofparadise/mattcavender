@@ -12,7 +12,7 @@ const ArchivePage = ({ data }) => {
       <main>
         <title>Archives | mattcavender.com</title>
 
-        <Link to="/" style={{ fontSize: 50 + "%", textAlign: "left" }}>
+        <Link to="/">
           <BloodyText text="Back" />
         </Link>
 
@@ -32,18 +32,30 @@ const ArchivePage = ({ data }) => {
 
         <ul style={{ listStyleType: "tibetan", paddingLeft: 20 + "px" }}>
           {data.allMarkdownRemark.nodes.map((post) => (
-            <li>
-              <div style={{ float: "left" }}>
+            <li key={post.frontmatter.title}>
+              <span className="widescreen">
+                <div style={{ float: "left" }}>
+                  <Link to={post.slug}>{post.frontmatter.title}</Link>
+                </div>
+                <div style={{ float: "right" }}>
+                  <span style={{ color: "#555555" }}>
+                    {post.frontmatter.tags
+                      .split(",")
+                      .map((tag) => tag && tag.length > 0 && `#${tag} `)}{" "}
+                    - {post.frontmatter.date.slice(0, -5)}
+                  </span>
+                </div>
+              </span>
+              <span className="thinscreen" style={{ textAlign: "left" }}>
                 <Link to={post.slug}>{post.frontmatter.title}</Link>
-              </div>
-              <div style={{ float: "right" }}>
+                <br />
                 <span style={{ color: "#555555" }}>
                   {post.frontmatter.tags
                     .split(",")
                     .map((tag) => tag && tag.length > 0 && `#${tag} `)}{" "}
                   - {post.frontmatter.date.slice(0, -5)}
                 </span>
-              </div>
+              </span>
             </li>
           ))}
         </ul>

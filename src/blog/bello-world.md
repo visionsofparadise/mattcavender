@@ -1,18 +1,18 @@
 ---
-title: Bello World
+title: Bello World
 date: "2021-11-16-1948"
-description: I made a blog. This is it.
+description: I made a blog. This is it.
 tags: "misc"
 ---
 
 I made a blog. This is it.
 
-The design is inspired by [NFOs](http://artscene.textfiles.com/asciiart/NFOS/), [GameFAQs walkthroughs](https://gamefaqs.gamespot.com/gba/562260-onimusha-tactics/faqs/51373) and [ASCII art](http://artscene.textfiles.com/asciiart/). 
+The design is inspired by [NFOs](http://artscene.textfiles.com/asciiart/NFOS/), [GameFAQs walkthroughs](https://gamefaqs.gamespot.com/gba/562260-onimusha-tactics/faqs/51373) and [ASCII art](http://artscene.textfiles.com/asciiart/). 
 
 ---
 
 # For The Nerds
-Made with [GatsbyJS](https://www.gatsbyjs.com/), uses GitHub Actions to build and hosted on S3. Planning to make it just HTML and TXT files someday because, you know, fuck the system and all that. 
+Made with [GatsbyJS](https://www.gatsbyjs.com/), uses GitHub Actions to build and hosted on S3. Planning to make it just HTML and TXT files someday because, you know, fuck the system and all that. 
 
 Currently, there is no comments section but feel free to mail me. Once the blog picks up a bit of traffic I will be implementing [Webmention](https://www.w3.org/TR/webmention/)s.
 
@@ -29,26 +29,26 @@ Source code is available on [GitHub](https://github.com/visionsofparadise/mattca
 ---
 
 # Me Me Me
-If you don't know much about me, here's a quick rundown…
+If you don't know much about me, here's a quick rundown…
 
 ![Me](https://mattcavender-media.s3.amazonaws.com/back_headshot.jpg)
 
-- Spent an ungodly amount of time making electronic music, contracted insomnia
-- Made synthesizers go roar, bwowow and reeee
-- Got to DJ at some clubs and festivals
-- Met Paris Hilton once
+- Spent an ungodly amount of time making electronic music, contracted insomnia
+- Made synthesizers go roar, bwowow and reeee
+- Got to DJ at some clubs and festivals
+- Met Paris Hilton once
 - COVID-19 happened, could no longer gather crowds of sweaty people
-- Learned to code and build applications on AWS
-- Made peoples voices deeper and edited technology podcasts
+- Learned to code and build applications on AWS
+- Made peoples voices deeper and edited technology podcasts
 - Looking to get back into music with something new and refreshing once this all blows over
 
 ---
 
-In the future I'll be writing blog posts on…
-- Electronic music production
-- Coding and web-development
-- And maybe other stuff 
+In the future I'll be writing blog posts on…
+- Electronic music production
+- Coding and web-development
+- And maybe other stuff 
 
-If any of that interests you, you can subscribe via [RSS](https://mattcavender.com/rss.xml).  
+If any of that interests you, you can subscribe via [RSS](https://mattcavender.com/rss.xml). 
 
-Later buckos!
+Later buckos!

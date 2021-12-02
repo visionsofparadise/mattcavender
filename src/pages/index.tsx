@@ -43,7 +43,7 @@ const IndexPage = ({ data }) => {
 
         <ul style={{ listStyleType: "tibetan", paddingLeft: 20 + "px" }}>
           {data.allMarkdownRemark.nodes.map((post) => (
-            <li>
+            <li key={post.frontmatter.title}>
               <span className="widescreen">
                 <div style={{ float: "left" }}>
                   <Link to={post.slug}>{post.frontmatter.title}</Link>
