@@ -2,7 +2,7 @@ import * as React from "react";
 import { graphql, Link } from "gatsby";
 import Layout from "../components/layout";
 import Spacer from "../components/spacer";
-import BloodyText from "../components/bloodyText";
+import CosmikeText from "../components/cosmikeText";
 import SmallSpacer from "../components/smallSpacer";
 import Ah from "../components/ariaHidden";
 
@@ -13,7 +13,7 @@ const ArchivePage = ({ data }) => {
         <title>Archives | mattcavender.com</title>
 
         <Link to="/">
-          <BloodyText text="Back" />
+          <CosmikeText text="Back" />
         </Link>
 
         <Spacer />

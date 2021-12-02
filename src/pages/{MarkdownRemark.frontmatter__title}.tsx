@@ -1,11 +1,11 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
 import chunk from "lodash/chunk";
-import StrongerThanAll from "figlet/importable-fonts/Stronger Than All";
+import Fraktur from "figlet/importable-fonts/Fraktur";
 import ASCII from "react-rainbow-ascii";
 import Layout from "../components/layout";
 import Spacer from "../components/spacer";
-import BloodyText from "../components/bloodyText";
+import CosmikeText from "../components/cosmikeText";
 import Ah from "../components/ariaHidden";
 import { renderAst } from "../components/transformations";
 
@@ -18,7 +18,7 @@ export default function BlogPost({ data }) {
         <title>{post.frontmatter.title} | mattcavender.com</title>
 
         <Link to="../archive">
-          <BloodyText text="Back" />
+          <CosmikeText text="Back" />
         </Link>
 
         <Spacer />
@@ -28,9 +28,9 @@ export default function BlogPost({ data }) {
             <Ah>
               {chunk(post.frontmatter.title.split(" "), 3).map((line) => (
                 <ASCII
-                  text={line.join(" ").toUpperCase()}
+                  text={line.join(" ")}
                   rainbow={false}
-                  font={StrongerThanAll as figlet.Fonts}
+                  font={Fraktur as figlet.Fonts}
                   id="titleWidescreen"
                 />
               ))}
@@ -40,9 +40,9 @@ export default function BlogPost({ data }) {
           <div className="thinscreen" style={{ fontSize: 50 + "%" }}>
             {post.frontmatter.title.split(" ").map((line) => (
               <ASCII
-                text={line.toUpperCase()}
+                text={line}
                 rainbow={false}
-                font={StrongerThanAll as figlet.Fonts}
+                font={Fraktur as figlet.Fonts}
                 id="titleThinscreen"
               />
             ))}

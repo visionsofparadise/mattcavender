@@ -2,9 +2,11 @@ import * as React from "react";
 import { graphql, Link } from "gatsby";
 import Layout from "../components/layout";
 import Spacer from "../components/spacer";
-import BloodyText from "../components/bloodyText";
+import CosmikeText from "../components/cosmikeText";
 import SmallSpacer from "../components/smallSpacer";
 import Ah from "../components/ariaHidden";
+import Fraktur from "figlet/importable-fonts/Fraktur";
+import ASCII from "react-rainbow-ascii";
 
 const IndexPage = ({ data }) => {
   return (
@@ -14,8 +16,23 @@ const IndexPage = ({ data }) => {
 
         <div>
           <Link to="/">
-            <BloodyText text="Matt" />
-            <BloodyText text="Cavender" />
+            <div style={{ fontSize: 50 + "%" }}>
+              <Ah>
+                <ASCII
+                  text="Matt"
+                  rainbow={false}
+                  font={Fraktur as figlet.Fonts}
+                  id="Matt"
+                />
+                <ASCII
+                  text="Cavender"
+                  rainbow={false}
+                  font={Fraktur as figlet.Fonts}
+                  id="Cavender"
+                />
+              </Ah>
+              <h1 className="sr-only">Matt Cavender</h1>
+            </div>
           </Link>
 
           <SmallSpacer />
@@ -80,7 +97,7 @@ const IndexPage = ({ data }) => {
         <SmallSpacer />
 
         <div>
-          <BloodyText text="xKore" />
+          <CosmikeText text="xKore" />
           <p>dubstep and drum & bass music (est. 2008)</p>
           <p>
             <a
@@ -111,11 +128,11 @@ const IndexPage = ({ data }) => {
           <Spacer />
 
           <div className="widescreen">
-            <BloodyText text="Sonny Banks" />
+            <CosmikeText text="Sonny Banks" />
           </div>
           <div className="thinscreen">
-            <BloodyText text="Sonny" />
-            <BloodyText text="Banks" />
+            <CosmikeText text="Sonny" />
+            <CosmikeText text="Banks" />
           </div>
           <p>bass house music (est. 2014)</p>
           <p>
@@ -146,7 +163,7 @@ const IndexPage = ({ data }) => {
 
           <Spacer />
 
-          <BloodyText text="ZCROSS" />
+          <CosmikeText text="ZCROSS" />
           <p>podcast production and editing (est. 2020)</p>
           <p>
             <a href="https://zcross.media" rel="noreferrer" target="__blank">

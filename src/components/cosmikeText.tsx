@@ -1,31 +1,28 @@
 import React from "react";
 import ASCII from "react-rainbow-ascii";
-import Bloody from "figlet/importable-fonts/Bloody";
+import Cosmike from "figlet/importable-fonts/Cosmike";
 import Ah from "./ariaHidden";
 
-export default function BloodyText({ text }) {
+export default function CosmikeText({ text }) {
   return (
     <>
       <div className="widescreen" style={{ fontSize: 50 + "%" }}>
         <Ah>
           <ASCII
-            text={text.toUpperCase()}
+            text={text}
             id={text}
             rainbow={false}
-            font={Bloody as figlet.Fonts}
+            font={Cosmike as figlet.Fonts}
           />
         </Ah>
       </div>
-      <div
-        className="thinscreen"
-        style={{ fontSize: 30 + "%", lineHeight: 80 + "%" }}
-      >
+      <div className="thinscreen" style={{ fontSize: 30 + "%" }}>
         <Ah>
           <ASCII
-            text={text.toUpperCase()}
+            text={text}
             id={text}
             rainbow={false}
-            font={Bloody as figlet.Fonts}
+            font={Cosmike as figlet.Fonts}
           />
         </Ah>
       </div>
