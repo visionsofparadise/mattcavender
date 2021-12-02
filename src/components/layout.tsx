@@ -1,6 +1,4 @@
 import React from "react";
-import "./layout.css";
-import "prismjs/themes/prism-solarizedlight.css";
 import SmallSpacer from "./smallSpacer";
 import Spacer from "./spacer";
 import FadeIn from "react-fade-in";
