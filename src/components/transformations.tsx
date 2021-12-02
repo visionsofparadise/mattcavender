@@ -49,7 +49,7 @@ function CustomH6({ children }) {
 function ExternalLink({ children, href }) {
   return (
     <a href={href} target="__blank" rel="noreferrer">
-      {children} ↪
+      {children}
     </a>
   );
 }
