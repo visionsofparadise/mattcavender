@@ -24,7 +24,7 @@ You may be wondering how the design can be accessible to screen readers with so 
 
 Having fallback text that is hidden from sighted users but present for screen-readers is not trivial. Fallback text uses a screen-reader only technique that hides text off-screen. You can find a detailed walkthrough of that [here](https://webaim.org/techniques/css/invisiblecontent/).
 
-Source code is available [here](https://github.com/visionsofparadise/mattcavender).
+Source code is available on [GitHub](https://github.com/visionsofparadise/mattcavender).
 
 ---
 
