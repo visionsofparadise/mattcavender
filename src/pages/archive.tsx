@@ -4,6 +4,7 @@ import Layout from "../components/layout";
 import Spacer from "../components/spacer";
 import BloodyText from "../components/bloodyText";
 import SmallSpacer from "../components/smallSpacer";
+import Ah from "../components/ariaHidden";
 
 const ArchivePage = ({ data }) => {
   return (
@@ -17,7 +18,9 @@ const ArchivePage = ({ data }) => {
 
         <Spacer />
 
-        <p>� Archive �</p>
+        <p>
+          <Ah>� </Ah>Archive<Ah> �</Ah>
+        </p>
 
         <p>
           <a href="/rss.xml" target="__blank" rel="noreferrer">

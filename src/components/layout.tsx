@@ -1,8 +1,10 @@
 import React from "react";
 import "./layout.css";
+import "prismjs/themes/prism-solarizedlight.css";
 import SmallSpacer from "./smallSpacer";
 import Spacer from "./spacer";
 import FadeIn from "react-fade-in";
+import Ah from "./ariaHidden";
 
 export default function Layout({ children }) {
   const phrases = [
@@ -25,22 +27,33 @@ export default function Layout({ children }) {
 
       <Spacer />
 
-      <p>Contact me at...</p>
+      <p>
+        Contact me at<Ah>...</Ah>
+      </p>
       <pre className="widescreen">
-        <span className="muted">ضؤؤؤؤؤؤؤؤؤؤؤؤؤؤؤؤؤؤؤؤؤؤ</span>[{" "}
-        <a href="mailto:s5t0js8n@anonaddy.me">s5t0js8n@anonaddy.me</a> ]
-        <span className="muted">ؤؤؤؤؤؤؤؤؤؤؤؤؤؤؤؤؤؤؤؤؤؤؤ·</span>
+        <span className="muted">
+          <Ah>ضؤؤؤؤؤؤؤؤؤؤؤؤؤؤؤؤؤؤؤؤؤؤ</Ah>
+        </span>
+        [ <a href="mailto:s5t0js8n@anonaddy.me">s5t0js8n@anonaddy.me</a> ]
+        <span className="muted">
+          <Ah>ؤؤؤؤؤؤؤؤؤؤؤؤؤؤؤؤؤؤؤؤؤؤؤ·</Ah>
+        </span>
       </pre>
       <pre className="thinscreen">
-        <span className="muted">ضؤؤؤ</span>[{" "}
-        <a href="mailto:s5t0js8n@anonaddy.me">s5t0js8n@anonaddy.me</a> ]
-        <span className="muted">ؤؤؤ·</span>
+        <span className="muted">
+          <Ah>ضؤؤؤ</Ah>
+        </span>
+        [ <a href="mailto:s5t0js8n@anonaddy.me">s5t0js8n@anonaddy.me</a> ]
+        <span className="muted">
+          <Ah>ؤؤؤ·</Ah>
+        </span>
       </pre>
 
       <Spacer />
 
-      <pre className="muted" style={{ fontSize: 80 + "%" }}>
-        {`л
+      <Ah>
+        <pre className="muted" style={{ fontSize: 80 + "%" }}>
+          {`л
 л
 л
 л
@@ -50,7 +63,8 @@ export default function Layout({ children }) {
 ѓ№ђ
 В
 В`}
-      </pre>
+        </pre>
+      </Ah>
 
       <SmallSpacer />
 

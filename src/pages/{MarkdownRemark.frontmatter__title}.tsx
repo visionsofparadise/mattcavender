@@ -6,6 +6,8 @@ import ASCII from "react-rainbow-ascii";
 import Layout from "../components/layout";
 import Spacer from "../components/spacer";
 import BloodyText from "../components/bloodyText";
+import Ah from "../components/ariaHidden";
+import { renderAst } from "../components/transformations";
 
 export default function BlogPost({ data }) {
   const post = data.markdownRemark;
@@ -23,14 +25,17 @@ export default function BlogPost({ data }) {
 
         <Link to={post.slug}>
           <div className="widescreen" style={{ fontSize: 50 + "%" }}>
-            {chunk(post.frontmatter.title.split(" "), 3).map((line) => (
-              <ASCII
-                text={line.join(" ").toUpperCase()}
-                rainbow={false}
-                font={StrongerThanAll as figlet.Fonts}
-                id="titleWidescreen"
-              />
-            ))}
+            <Ah>
+              {chunk(post.frontmatter.title.split(" "), 3).map((line) => (
+                <ASCII
+                  text={line.join(" ").toUpperCase()}
+                  rainbow={false}
+                  font={StrongerThanAll as figlet.Fonts}
+                  id="titleWidescreen"
+                />
+              ))}
+            </Ah>
+            <h1 className="sr-only">{post.frontmatter.title}</h1>
           </div>
           <div className="thinscreen" style={{ fontSize: 50 + "%" }}>
             {post.frontmatter.title.split(" ").map((line) => (
@@ -59,12 +64,7 @@ export default function BlogPost({ data }) {
 
         <Spacer />
 
-        <div
-          className="postbody"
-          dangerouslySetInnerHTML={{
-            __html: post.html,
-          }}
-        />
+        <div style={{ textAlign: "left" }}>{renderAst(post.htmlAst)}</div>
 
         <Spacer />
       </main>
@@ -80,7 +80,7 @@ export const query = graphql`
         date
         tags
       }
-      html
+      htmlAst
       slug: gatsbyPath(filePath: "/{MarkdownRemark.frontmatter__title}")
     }
   }

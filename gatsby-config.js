@@ -9,7 +9,12 @@ module.exports = {
     description: "Matt Cavender aka xKore aka Sonny Banks aka ZCROSS",
   },
   plugins: [
-    "gatsby-transformer-remark",
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [`gatsby-remark-prismjs`],
+      },
+    },
     {
       resolve: "gatsby-source-filesystem",
       options: {
@@ -17,6 +22,38 @@ module.exports = {
         path: "./src/pages/",
       },
       __key: "pages",
+      plugins: [
+        {
+          resolve: `gatsby-remark-prismjs`,
+          options: {
+            classPrefix: "language-",
+            inlineCodeMarker: null,
+            aliases: {},
+            showLineNumbers: false,
+            noInlineHighlight: false,
+            languageExtensions: [
+              {
+                language: "superscript",
+                extend: "javascript",
+                definition: {
+                  superscript_types: /(SuperType)/,
+                },
+                insertBefore: {
+                  function: {
+                    superscript_keywords: /(superif|superelse)/,
+                  },
+                },
+              },
+            ],
+            prompt: {
+              user: "root",
+              host: "localhost",
+              global: false,
+            },
+            escapeEntities: {},
+          },
+        },
+      ],
     },
     {
       resolve: "gatsby-source-filesystem",

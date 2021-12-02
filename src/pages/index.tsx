@@ -4,6 +4,7 @@ import Layout from "../components/layout";
 import Spacer from "../components/spacer";
 import BloodyText from "../components/bloodyText";
 import SmallSpacer from "../components/smallSpacer";
+import Ah from "../components/ariaHidden";
 
 const IndexPage = ({ data }) => {
   return (
@@ -23,29 +24,19 @@ const IndexPage = ({ data }) => {
             Electronic music/podcast producer and coder (Node/Typescript,
             React).
           </p>
-
-          {/* <SmallSpacer /> */}
-
-          {/* <p>
-            I write blog posts on...
-            <ul style={{ listStyle: "none", padding: 0 + "px" }}>
-              <li>- Electronic music production</li>
-              <li>- Node/Typescript, React and AWS</li>
-              <li>- Chess learning</li>
-              <li>- Personal research on health</li>
-            </ul>
-          </p> */}
         </div>
 
         <Spacer />
 
-        <p>� Recent Posts �</p>
+        <p>
+          <Ah>� </Ah>Recent Posts<Ah> �</Ah>
+        </p>
 
         <p>
           <a href="/rss.xml" target="__blank" rel="noreferrer">
             RSS
           </a>{" "}
-          њ <Link to="archive">Archive</Link>
+          <Ah>њ</Ah> <Link to="archive">Archive</Link>
         </p>
 
         <SmallSpacer />
@@ -82,13 +73,15 @@ const IndexPage = ({ data }) => {
 
         <Spacer />
 
-        <p>� AKA �</p>
+        <p>
+          <Ah>� </Ah>AKA<Ah> �</Ah>
+        </p>
 
         <SmallSpacer />
 
         <div>
           <BloodyText text="xKore" />
-          <p>dubstep and drum & bass music (est. 2010)</p>
+          <p>dubstep and drum & bass music (est. 2008)</p>
           <p>
             <a
               href="https://soundcloud.com/xkore"
@@ -97,7 +90,7 @@ const IndexPage = ({ data }) => {
             >
               soundcloud
             </a>
-            {" њ "}
+            <Ah>{" њ "}</Ah>
             <a
               href="https://open.spotify.com/artist/5cfALf5vLhWIo7VeIh4fQX?si=XttWpM81TCi7qVMpH3uKYQ"
               rel="noreferrer"
@@ -105,7 +98,7 @@ const IndexPage = ({ data }) => {
             >
               spotify
             </a>
-            {" њ "}
+            <Ah>{" њ "}</Ah>
             <a
               href="https://www.youtube.com/user/xKoreHD"
               rel="noreferrer"
@@ -133,7 +126,7 @@ const IndexPage = ({ data }) => {
             >
               soundcloud
             </a>
-            {" њ "}
+            <Ah>{" њ "}</Ah>
             <a
               href="https://open.spotify.com/artist/6ib0DdCLBUPWNaHztQhrSL"
               rel="noreferrer"
@@ -141,7 +134,7 @@ const IndexPage = ({ data }) => {
             >
               spotify
             </a>
-            {" њ "}
+            <Ah>{" њ "}</Ah>
             <a
               href="https://www.youtube.com/user/sonnybanksmusic"
               rel="noreferrer"

@@ -67,11 +67,6 @@ body {
   line-height: 125%;
 }
 
-a {
-  color: #fd8c84;
-  text-decoration: none;
-}
-
 img {
   display: block;
   margin-left: auto;
@@ -84,12 +79,38 @@ li {
   padding: 0;
 }
 
+a {
+  color: #fd8c84;
+  text-decoration: none;
+  animation: blinkingText2 0.08s infinite;
+}
+
 a:hover {
   color: darksalmon;
+  animation: blinkingText1 0.5s infinite;
 }
 
 a:visited {
   color: #ff6056;
+}
+
+/* Specifies the animation and transparency for the blinking text */
+@keyframes blinkingText1 {
+  0% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes blinkingText2 {
+  0% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .muted {
@@ -106,6 +127,17 @@ a:visited {
 
 .hidden {
   display: none;
+}
+
+.sr-only {
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
 }
 
 @media only screen and (max-width: 600px) {
