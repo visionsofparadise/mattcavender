@@ -1,3 +1,3 @@
-(mattcavender.com)[https://mattcavender.com]
+[mattcavender.com](https://mattcavender.com)
 
 Built with GatsbyJS
