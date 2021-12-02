@@ -18,7 +18,7 @@ Currently, there is no comments section but feel free to mail me. Once the blog 
 
 You may be wondering how the design can be accessible to screen readers with so much decorative text. The “aria-hidden” tag prevents that text from being read.
 
-```markup{numberLines: true}
+```markup
 <p aria-hidden="true">Visible text screen readers should ignore</p>
 ```
 
