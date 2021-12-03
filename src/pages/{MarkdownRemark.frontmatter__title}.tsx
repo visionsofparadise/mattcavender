@@ -17,37 +17,36 @@ export default function BlogPost({ data }) {
       <main>
         <title>{post.frontmatter.title} | mattcavender.com</title>
 
-        <Link to="../archive">
-          <CosmikeText text="Back" />
+        <Link to="../">
+          <CosmikeText text="Home" />
         </Link>
 
         <Spacer />
+        <Spacer />
 
-        <Link to={post.slug}>
-          <div className="widescreen" style={{ fontSize: 50 + "%" }}>
-            <Ah>
-              {chunk(post.frontmatter.title.split(" "), 3).map((line) => (
-                <ASCII
-                  text={line.join(" ")}
-                  rainbow={false}
-                  font={Fraktur as figlet.Fonts}
-                  id="titleWidescreen"
-                />
-              ))}
-            </Ah>
-            <h1 className="sr-only">{post.frontmatter.title}</h1>
-          </div>
-          <div className="thinscreen" style={{ fontSize: 50 + "%" }}>
-            {post.frontmatter.title.split(" ").map((line) => (
+        <div className="widescreen" style={{ fontSize: 50 + "%" }}>
+          <Ah>
+            {chunk(post.frontmatter.title.split(" "), 3).map((line) => (
               <ASCII
-                text={line}
+                text={line.join(" ")}
                 rainbow={false}
                 font={Fraktur as figlet.Fonts}
-                id="titleThinscreen"
+                id="titleWidescreen"
               />
             ))}
-          </div>
-        </Link>
+          </Ah>
+          <h1 className="sr-only">{post.frontmatter.title}</h1>
+        </div>
+        <div className="thinscreen" style={{ fontSize: 50 + "%" }}>
+          {post.frontmatter.title.split(" ").map((line) => (
+            <ASCII
+              text={line}
+              rainbow={false}
+              font={Fraktur as figlet.Fonts}
+              id="titleThinscreen"
+            />
+          ))}
+        </div>
         <p>{post.frontmatter.date}</p>
 
         <p className="muted">

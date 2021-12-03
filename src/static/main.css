@@ -93,6 +93,10 @@ a:visited {
   color: #ff6056;
 }
 
+.blinking {
+  animation: blinkingText2 0.08s infinite;
+}
+
 /* Specifies the animation and transparency for the blinking text */
 @keyframes blinkingText1 {
   0% {

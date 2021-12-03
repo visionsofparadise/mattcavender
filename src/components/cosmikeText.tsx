@@ -6,7 +6,7 @@ import Ah from "./ariaHidden";
 export default function CosmikeText({ text }) {
   return (
     <>
-      <div className="widescreen" style={{ fontSize: 50 + "%" }}>
+      <div className="widescreen">
         <Ah>
           <ASCII
             text={text}
@@ -16,7 +16,7 @@ export default function CosmikeText({ text }) {
           />
         </Ah>
       </div>
-      <div className="thinscreen" style={{ fontSize: 30 + "%" }}>
+      <div className="thinscreen" style={{ fontSize: 40 + "%" }}>
         <Ah>
           <ASCII
             text={text}

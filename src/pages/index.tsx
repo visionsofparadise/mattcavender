@@ -46,14 +46,13 @@ const IndexPage = ({ data }) => {
         <Spacer />
 
         <p>
-          <Ah>� </Ah>Recent Posts<Ah> �</Ah>
+          <Ah>� </Ah>Blog<Ah> �</Ah>
         </p>
 
         <p>
           <a href="/rss.xml" target="__blank" rel="noreferrer">
             RSS
-          </a>{" "}
-          <Ah>њ</Ah> <Link to="archive">Archive</Link>
+          </a>
         </p>
 
         <SmallSpacer />
@@ -178,10 +177,7 @@ const IndexPage = ({ data }) => {
 
 export const query = graphql`
   query {
-    allMarkdownRemark(
-      sort: { fields: frontmatter___date, order: DESC }
-      limit: 10
-    ) {
+    allMarkdownRemark(sort: { fields: frontmatter___date, order: DESC }) {
       nodes {
         frontmatter {
           title
