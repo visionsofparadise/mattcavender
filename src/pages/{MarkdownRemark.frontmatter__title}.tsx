@@ -22,7 +22,6 @@ export default function BlogPost({ data }) {
         </Link>
 
         <Spacer />
-        <Spacer />
 
         <div className="widescreen" style={{ fontSize: 50 + "%" }}>
           <Ah>
