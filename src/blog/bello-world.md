@@ -28,7 +28,7 @@ Source code is available on [GitHub](https://github.com/visionsofparadise/mattca
 
 ---
 
-# Me Me Me
+# Who dat?
 If you don't know much about me, here's a quick rundown…
 
 ![Me](https://mattcavender-media.s3.amazonaws.com/back_headshot.jpg)
@@ -36,7 +36,6 @@ If you don't know much about me, here's a quick rundown…
 - Spent an ungodly amount of time making electronic music, caught insomnia
 - Made synthesizers go roar, bwowow and reeee
 - Got to DJ at some clubs and festivals
-- Met Paris Hilton once
 - COVID-19 happened, could no longer gather crowds of sweaty people
 - Learned to code and build applications
 - Made peoples voices deeper and edited technology podcasts
@@ -57,6 +56,4 @@ In the future I'll be writing blog posts on…
   - React
   - AWS
 
-If any of that interests you, you can subscribe via [RSS](https://mattcavender.com/rss.xml). 
-
-Later buckos!
+If any of that interests you, you can subscribe via [RSS](https://mattcavender.com/rss.xml).

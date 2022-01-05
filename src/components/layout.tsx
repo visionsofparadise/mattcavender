@@ -140,23 +140,15 @@ export default function Layout({ children }) {
           </Ah>
         </div>
 
-        <Link to="../">
-          <div
-            style={{
-              fontSize: 50 + "%",
-              position: "relative",
-              top: -250 + "px",
-            }}
-          >
-            {phrases[Math.floor(Math.random() * phrases.length)]
-              .split(" ")
-              .map((word) => (
-                <div style={{ height: 20 + "px", padding: 10 + "px" }}>
-                  <CosmikeText text={word} key={Math.random()} />
-                </div>
-              ))}
-          </div>
-        </Link>
+        <p
+          className="muted"
+          style={{
+            position: "relative",
+            top: -275 + "px",
+          }}
+        >
+          {phrases[Math.floor(Math.random() * phrases.length)]}
+        </p>
       </FadeIn>
     </>
   );
