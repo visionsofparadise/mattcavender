@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>{{ title or "Matt Cavender" }}</title>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <style>
+         body {
+            display: block;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1rem;
+            letter-spacing: 0.025em;
+            color: #bbbbbb;
+            background-color: #1a1b20;
+            margin: 0;
+            padding: 0;
+         }
+
+         a {
+            color: #df625b;
+         }
+
+         a:hover {
+            color: #ff8366;
+         }
+
+         .item {
+            padding-bottom: 4rem;
+         }
+
+         .container {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 48rem;
+            max-width: 95%;
+            padding-bottom: 8rem;
+         }
+
+         .header {
+            color: #df625b;
+            font-size: 0.7rem;
+            text-align: center;
+            padding-bottom: 8rem;
+         }
+
+         .footer {
+            text-align: center;
+            padding-bottom: 200px;
+         }
+      </style>
+   </head>
+   <body>
+      <div>
+         <div style="padding-bottom: 8rem;"></div>
+         <pre class="header">
+  ...     ..      ..          ...     ..            ...          
+  x*8888x.:*8888: -"888:     .=*8888x <"?88h.      xH88"`~ .x8X    
+ X   48888X `8888H  8888    X>  '8888H> '8888    :8888   .f"8888Hf 
+X8x.  8888X  8888X  !888>  '88h. `8888   8888   :8888>  X8L  ^""`  
+X8888 X8888  88888   "*8%- '8888 '8888    "88>  X8888  X888h       
+'*888!X8888> X8888  xH8>    `888 '8888.xH888x.  88888  !88888.     
+  `?8 `8888  X888X X888>      X" :88*~  `*8888> 88888   %88888     
+  -^  '888"  X888  8888>    ~"   !"`      "888> 88888 '> `8888>    
+   dx '88~x. !88~  8888>     .H8888h.      ?88  `8888L %  ?888   ! 
+ .8888Xf.888x:!    X888X.:  :"^"88888h.    '!    `8888  `-*""   /  
+:""888":~"888"     `888*"   ^    "88888hx.+"       "888.      :"   
+    "~'    "~        ""            ^"**""            `""***~"`     
+         </pre>
+         <div class="container">
+            {{ content | safe }}
+         </div>
+         <pre class="footer">
+Contact me at..
+
+☕ [<a href="mailto:s5t0js8n@anonaddy.me">s5t0js8n@anonaddy.me</a>] ☕
+         </pre>
+      </div>
+   </body>
+</html>

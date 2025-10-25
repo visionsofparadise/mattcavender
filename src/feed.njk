@@ -1,0 +1,26 @@
+---
+permalink: /feed.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Matt Cavender</title>
+  <subtitle>Writing on distributed systems, P2P protocols, and software development</subtitle>
+  <link href="https://mattcavender.com/feed.xml" rel="self"/>
+  <link href="https://mattcavender.com/"/>
+  <updated>{{ collections.posts | getNewestCollectionItemDate | dateToRfc3339 }}</updated>
+  <id>https://mattcavender.com/</id>
+  <author>
+    <name>Matt Cavender</name>
+    <email>s5t0js8n@anonaddy.me</email>
+  </author>
+  {%- for post in collections.posts | reverse %}
+  <entry>
+    <title>{{ post.data.title }}</title>
+    <link href="https://mattcavender.com{{ post.url }}"/>
+    <updated>{{ post.date | dateToRfc3339 }}</updated>
+    <id>https://mattcavender.com{{ post.url }}</id>
+    <content type="html">{{ post.templateContent | htmlToAbsoluteUrls("https://mattcavender.com") }}</content>
+  </entry>
+  {%- endfor %}
+</feed>

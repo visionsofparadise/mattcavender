@@ -1,0 +1,16 @@
+---
+layout: base.njk
+---
+
+<div class="item">
+   <a href="/">← back to home</a>
+</div>
+
+<div class="item">
+   <h1 style="color: #df625b; font-size: 1.5rem; margin: 0;">{{ title }}</h1>
+   <div style="padding-top: 1rem; padding-bottom: 2rem;">{{ date | dateDisplay }}</div>
+</div>
+
+<div class="item" style="line-height: 1.6;">
+   {{ content | safe }}
+</div>
