@@ -1,0 +1,52 @@
+{# Reusable .nfo-style macros — section headers, entries, TOC rows.
+   Whitespace control is critical: macros are inserted into <pre> blocks where
+   stray newlines become visible blank lines. #}
+
+{% macro sectionHeader(num, title, anchor, dataKey='') -%}
+{%- set inner = 76 -%}
+{%- set bar = '+' + ('=' | repeat(inner)) + '+' -%}
+{%- set label = '  ' + num + '.  ' + title -%}
+<div class="sect" id="{{ anchor }}"{% if dataKey %} data-key="{{ dataKey }}"{% endif %}><pre>{{ bar }}
+|{{ label | padEnd(inner) }}|
+{{ bar }}</pre></div>
+{%- endmacro %}
+
+{# entry: renders an .entry block. `indent` is a CSS length applied as
+   padding-left to the body/meta/tags lines so wrapped continuation lines
+   stay hanging-indented (e.g. "5ch" for code-style, "8ch" to align with
+   the title after a "NN.NN  " prefix). #}
+{% macro entry(e, section, date='', indent='8ch') -%}
+{%- set width = 78 -%}
+{%- set leftLen = 1 + (e.num | length) + 2 + (e.title | length) -%}
+{%- set dateStr = ('[ ' + date + ' ]') if date else '' -%}
+{%- set rightLen = dateStr | length -%}
+{%- set dotsLen = leftLen | dotCount(rightLen, width) -%}
+{%- set blob = (e.title + ' ' + (e.body or '') + ' ' + (e.tags | join(' ') if e.tags else '')) | lower -%}
+<div class="entry" data-section="{{ section }}" data-search="{{ blob }}" style="--entry-indent: {{ indent }}">
+<pre class="entry-head"><span class="num"> {{ e.num }}  </span>{% if e.href %}<a class="ttl" href="{{ e.href }}"{% if e.href.startsWith('http') %} target="_blank" rel="noopener"{% endif %}>{{ e.title }}</a>{% else %}<span class="ttl">{{ e.title }}</span>{% endif %}<span class="dots"> {{ '.' | repeat(dotsLen) }} </span>{% if dateStr %}<span class="date">{{ dateStr }}</span>{% endif %}</pre>
+{%- if e.meta %}
+<pre class="entry-meta"><span class="meta-key">url:</span> {% if e.href %}<a class="meta-link" href="{{ e.href }}"{% if e.href.startsWith('http') %} target="_blank" rel="noopener"{% endif %}>{{ e.meta }}</a>{% else %}<span class="meta-link">{{ e.meta }}</span>{% endif %}</pre>
+{%- endif %}
+{%- if e.body %}
+<pre class="entry-body">{{ e.body }}</pre>
+{%- endif %}
+{%- if e.tags and (e.tags | length) > 0 %}
+<pre class="entry-tags"><span class="meta-key">tags:</span> {% for t in e.tags %}<span class="tag">[{{ t }}]</span>{% if not loop.last %} {% endif %}{% endfor %}</pre>
+{%- endif %}
+</div>
+{%- endmacro %}
+
+{# tocRow: count is a number, or empty string for blank brackets. Emits the row
+   as plain text inside its caller's <pre> — no surrounding pre/span tags. #}
+{% macro tocRow(num, title, anchor, count='') -%}
+{%- set numStr = (num + '.') | padEnd(4) -%}
+{%- set linkText = numStr + '  ' + title -%}
+{%- if count == '' or count == null -%}
+{%- set right = '[          ]' -%}
+{%- else -%}
+{%- set right = '[ ' + (count | string | padStart(2, '0')) + ' entries ]' -%}
+{%- endif -%}
+{%- set dotsLen = (78 - (linkText | length) - (right | length) - 5) -%}
+{%- if dotsLen < 2 -%}{%- set dotsLen = 2 -%}{%- endif -%}
+   <a class="toc-link" href="#{{ anchor }}">{{ linkText }}</a> {{ '.' | repeat(dotsLen) }} {{ right }}
+{%- endmacro %}

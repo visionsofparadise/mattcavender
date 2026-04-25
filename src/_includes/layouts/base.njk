@@ -1,88 +1,65 @@
 <!DOCTYPE html>
-<html>
-   <head>
-      <title>{{ title or "Matt Cavender" }}</title>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <style>
-         body {
-            display: block;
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 1rem;
-            letter-spacing: 0.025em;
-            color: #bbbbbb;
-            background-color: #1a1b20;
-            margin: 0;
-            padding: 0;
-         }
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title or "mattcavender.nfo" }}</title>
+  <link rel="alternate" type="application/atom+xml" title="Matt Cavender" href="/feed.xml">
+  <link rel="stylesheet" href="/css/styles.css">
+  {% if page.url and page.url.startsWith('/posts/') %}<link rel="stylesheet" href="/css/post.css">{% endif %}
+</head>
+<body>
+  <canvas
+    class="dot-matrix-bg"
+    aria-hidden="true"
+    data-density="8"
+    data-dot-size="0.5"
+    data-speed="1"
+    data-amplitude="30"
+    data-opacity="0.4"
+    data-warp-scale="0.025"
+    data-pulse="1"
+    data-color="#7a7568"></canvas>
 
-         a {
-            color: #df625b;
-         }
+  <div class="page" id="top">
+    <div class="doc">
+      {% set isPost = page.url and page.url.startsWith('/posts/') %}
+      {% if not isPost %}
+      <pre class="banner">  ...     ..      ..          ...     ..            ...
+  x*8888x.:*8888: -"888:     .=*8888x &lt;"?88h.      xH88"`~ .x8X
+ X   48888X `8888H  8888    X&gt;  '8888H&gt; '8888    :8888   .f"8888Hf
+X8x.  8888X  8888X  !888&gt;  '88h. `8888   8888   :8888&gt;  X8L  ^""`
+X8888 X8888  88888   "*8%- '8888 '8888    "88&gt;  X8888  X888h
+'*888!X8888&gt; X8888  xH8&gt;    `888 '8888.xH888x.  88888  !88888.
+  `?8 `8888  X888X X888&gt;      X" :88*~  `*8888&gt; 88888   %88888
+  -^  '888"  X888  8888&gt;    ~"   !"`      "888&gt; 88888 '&gt; `8888&gt;
+   dx '88~x. !88~  8888&gt;     .H8888h.      ?88  `8888L %  ?888   !
+ .8888Xf.888x:!    X888X.:  :"^"88888h.    '!    `8888  `-*""   /
+:""888":~"888"     `888*"   ^    "88888hx.+"       "888.      :"
+    "~'    "~        ""            ^"**""            `""***~"`     </pre>
 
-         a:hover {
-            color: #ff8366;
-         }
+      <pre class="header-info">{% set bar = '+' + ('-' | repeat(76)) + '+' -%}
+{{ bar }}
+{{ ('FILE'     | headerRow('mattcavender.nfo',          'VERSION', '4.0'))    }}
+{{ ('AUTHOR'   | headerRow('matt cavender',             'RELEASE', '2026'))   }}
+{{ ('ENCODING' | headerRow('utf-8 / cp437',             'COLUMNS', '78'))     }}
+{{ ('TYPE'     | headerRow('personal site / index',     'STATUS',  'ONLINE')) }}
+{{ bar }}</pre>
 
-         .item {
-            padding-bottom: 4rem;
-         }
+      <pre class="rule">{{ '-' | repeat(78) }}</pre>
+      {% endif %}
 
-         .container {
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            width: 48rem;
-            max-width: 95%;
-            padding-bottom: 8rem;
-         }
+      {{ content | safe }}
 
-         .header {
-            color: #df625b;
-            font-size: 0.7rem;
-            text-align: center;
-            padding-bottom: 8rem;
-         }
+      <pre class="rule">{{ '=' | repeat(78) }}</pre>
 
-         .item img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-         }
+      <pre class="eof">--- EOF --- {{ '' | dateNow }} --- 0x4D43 ---</pre>
+      <div style="height: 80px;"></div>
+    </div>
+  </div>
 
-         .footer {
-            text-align: center;
-            padding-bottom: 200px;
-         }
-      </style>
-   </head>
-   <body>
-      <div>
-         <div style="padding-bottom: 8rem;"></div>
-         <pre class="header">
-  ...     ..      ..          ...     ..            ...          
-  x*8888x.:*8888: -"888:     .=*8888x <"?88h.      xH88"`~ .x8X    
- X   48888X `8888H  8888    X>  '8888H> '8888    :8888   .f"8888Hf 
-X8x.  8888X  8888X  !888>  '88h. `8888   8888   :8888>  X8L  ^""`  
-X8888 X8888  88888   "*8%- '8888 '8888    "88>  X8888  X888h       
-'*888!X8888> X8888  xH8>    `888 '8888.xH888x.  88888  !88888.     
-  `?8 `8888  X888X X888>      X" :88*~  `*8888> 88888   %88888     
-  -^  '888"  X888  8888>    ~"   !"`      "888> 88888 '> `8888>    
-   dx '88~x. !88~  8888>     .H8888h.      ?88  `8888L %  ?888   ! 
- .8888Xf.888x:!    X888X.:  :"^"88888h.    '!    `8888  `-*""   /  
-:""888":~"888"     `888*"   ^    "88888hx.+"       "888.      :"   
-    "~'    "~        ""            ^"**""            `""***~"`     
-         </pre>
-         <div class="container">
-            {{ content | safe }}
-         </div>
-         <pre class="footer">
-Contact me at..
-
-☕ [<a href="mailto:s5t0js8n@anonaddy.me">s5t0js8n@anonaddy.me</a>] ☕
-         </pre>
-      </div>
-   </body>
+  <script src="/js/dot-matrix.js" defer></script>
+  <script src="/js/ascii-scrollbar.js" defer></script>
+  <script src="/js/keybinds.js" defer></script>
+</body>
 </html>

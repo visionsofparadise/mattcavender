@@ -2,15 +2,33 @@
 layout: base.njk
 ---
 
-<div class="item">
-   <a href="/">← back to home</a>
+{% set num = page.url | postNum(collections.posts) %}
+
+<pre class="post-breadcrumb"><a href="/">/index</a> &gt; <a href="/#writing">/writing</a> &gt; <span>{{ page.fileSlug }}.md</span></pre>
+
+<pre class="rule">{{ '-' | repeat(78) }}</pre>
+
+{% set framedTop = '+' + ('=' | repeat(76)) + '+' %}
+{% set _label = '  ' + num + '.  ' + title %}
+<pre class="post-title">{{ framedTop }}
+|{{ _label | padEnd(76) }}|
+{{ framedTop }}</pre>
+{% if description %}<pre class="post-subtitle">{{ description }}</pre>{% endif %}
+
+<pre class="rule">{{ '-' | repeat(78) }}</pre>
+
+<div class="post-body">
+  {{ content | safe }}
 </div>
 
-<div class="item">
-   <h1 style="color: #df625b; font-size: 1.5rem; margin: 0;">{{ title }}</h1>
-   <div style="padding-top: 1rem; padding-bottom: 2rem;">{{ date | dateDisplay }}</div>
-</div>
+<pre class="rule">{{ '=' | repeat(78) }}</pre>
 
-<div class="item" style="line-height: 1.6;">
-   {{ content | safe }}
-</div>
+{# Nav line: left = back, middle = published date, right = top of page.
+   Two equal gaps so the three segments are evenly distributed across 78 cols. #}
+{% set _left = '[ << ]  back to index' %}
+{% set _midText = 'published: ' + (date | dateDisplay) %}
+{% set _right = '[ ^ ]  top of page' %}
+{% set _gap = ((78 - (_left | length) - (_midText | length) - (_right | length)) / 2) | int %}
+{% if _gap < 2 %}{% set _gap = 2 %}{% endif %}
+{% set _trail = 78 - (_left | length) - _gap - (_midText | length) - _gap - (_right | length) %}
+<pre class="post-nav">[ &lt;&lt; ]  <a href="/">back to index</a>{{ ' ' | repeat(_gap) }}<span class="meta-key">published</span>: <span>{{ date | dateDisplay }}</span>{{ ' ' | repeat(_gap + _trail) }}[ ^ ]  <a href="#top">top of page</a></pre>

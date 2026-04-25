@@ -1,112 +1,77 @@
 ---
 layout: base.njk
-title: Matt Cavender
+title: mattcavender.nfo
 ---
+
+{% from "macros.njk" import sectionHeader, entry, tocRow %}
 
 {% set postslist = collections.posts | reverse %}
 
-<div class="item">
-   <div class="item">
-      <b style="color:#df625b">WRITING</b> - <a href="/feed.xml">RSS</a>
-   </div>
-
-   {% if postslist.length > 0 %}
-      {% for post in postslist %}
-      <div class="item">
-         <b><a href="{{ post.url }}">{{ post.data.title }}</a></b> [ {{ post.data.date | dateDisplay }} ]<br /><br />
-         {{ post.data.description }}<br />
-      </div>
-      {% endfor %}
-   {% else %}
-      <div class="item">
-         No posts yet...<br />
-      </div>
-   {% endif %}
+<div class="toc">
+<pre class="toc-title">{% set t = '-- TABLE OF CONTENTS ' %}{{ t }}{{ '-' | repeat(78 - (t | length)) }}</pre>
+<pre class="toc-body">{{ tocRow('00', 'ABSTRACT', 'abstract') }}
+{{ tocRow('01', 'WRITING', 'writing', postslist | length) }}
+{{ tocRow('02', 'CODE', 'code', sections.CODE | length) }}
+{{ tocRow('03', 'PODCASTS', 'podcasts', sections.PODCASTS | length) }}
+{{ tocRow('04', 'AUDIO', 'audio', sections.AUDIO | length) }}
+{{ tocRow('05', 'CONTACT', 'contact') }}</pre>
 </div>
 
-<div class="item">
-   <div class="item">
-      <b style="color:#df625b">CODE</b>
-   </div>
-   <div class="item">
-      <b>descript-color-grade</b> [ <a href="https://github.com/visionsofparadise/descript-color-grade">https://github.com/visionsofparadise/descript-color-grade</a> ]<br /><br />
-      Color grading companion app for Descript. Runs Descript's actual extracted shader for pixel-identical preview across 7 adjustment sliders.<br />
-   </div>
+<pre class="rule">{{ '-' | repeat(78) }}</pre>
 
-   <div class="item">
-      <b>@e9g/spectral-display</b> [ <a href="https://github.com/visionsofparadise/engineering/tree/main/packages/spectral-display">https://github.com/visionsofparadise/engineering/tree/main/packages/spectral-display</a> ]<br /><br />
-      WebGPU audio spectrogram and waveform visualization. GPU-computed FFT, perceptual frequency scales, BS.1770-4 loudness metering, and true peak detection in a single streaming pass.<br />
-   </div>
+{{ sectionHeader('00', 'ABSTRACT', 'abstract', '1') }}
+<pre class="prose">{{ sections.ABSTRACT }}</pre>
 
-   <div class="item">
-      <b>@e9g/buffered-audio-nodes</b> [ <a href="https://github.com/visionsofparadise/engineering/tree/main/packages/buffered-audio-nodes">https://github.com/visionsofparadise/engineering/tree/main/packages/buffered-audio-nodes</a> ]<br /><br />
-      Offline audio processing nodes for restoration, podcast production, and mastering. ML-powered transforms with ONNX runtime integration.<br />
-   </div>
+<pre class="rule">{{ '-' | repeat(78) }}</pre>
 
-   <div class="item">
-      <b>@e9g/buffered-audio-nodes-core</b> [ <a href="https://github.com/visionsofparadise/engineering/tree/main/packages/buffered-audio-nodes-core">https://github.com/visionsofparadise/engineering/tree/main/packages/buffered-audio-nodes-core</a> ]<br /><br />
-      Protocol and graph executor for composable audio processing pipelines. Streaming chunk-based architecture for arbitrary-length audio.<br />
-   </div>
-
-   <div class="item">
-      <b>@e9g/buffered-audio-nodes-utils</b> [ <a href="https://github.com/visionsofparadise/engineering/tree/main/packages/buffered-audio-nodes-utils">https://github.com/visionsofparadise/engineering/tree/main/packages/buffered-audio-nodes-utils</a> ]<br /><br />
-      Shared DSP utilities for buffered audio processing — sample format conversion, resampling, and buffer management.<br />
-   </div>
-
-   <div class="item">
-      <b>DICES</b> [ <a href="https://github.com/visionsofparadise/dices/tree/main/packages/dices">https://github.com/visionsofparadise/dices/tree/main/packages/dices</a> ]<br /><br />
-      Quantum-resistant encryption layer using ML-KEM-1024 + X25519 hybrid with bounded triple ratchet. Provides forward/backward secrecy for P2P applications.<br />
-   </div>
-
-   <div class="item">
-      <b>DICE</b> [ <a href="https://github.com/visionsofparadise/dice/tree/main/packages/client">https://github.com/visionsofparadise/dice/tree/main/packages/client</a> ]<br /><br />
-      P2P connectivity protocol using distributed peer infrastructure instead of centralized STUN/TURN servers.<br />
-   </div>
-
-   <div class="item">
-      <b>bufferfy</b> [ <a href="https://github.com/visionsofparadise/bufferfy">https://github.com/visionsofparadise/bufferfy</a> ]<br /><br />
-      Binary serialization library achieving 50-70% smaller output than JSON and 30-40% smaller than msgpack with full TypeScript type inference.<br />
-   </div>
-
-   <div class="item">
-      <b>kademlia-table</b> [ <a href="https://github.com/visionsofparadise/kademlia-table">https://github.com/visionsofparadise/kademlia-table</a> ]<br /><br />
-      XOR distance routing table for Kademlia DHT with extendable k-buckets, LRU ordering, and external liveness management.<br />
-   </div>
-
-   <div class="item">
-      <b>sqs-mock</b> [ <a href="https://github.com/visionsofparadise/sqs-mock">https://github.com/visionsofparadise/sqs-mock</a> ]<br /><br />
-      A functional, in-memory mock of the SQS client from AWS-SDK.<br />
-   </div>
+<div class="searchbar">
+  <pre class="search-prompt"><span class="accent">&gt;_ </span><span class="search-label">grep:</span></pre>
+  <input class="search-input" type="text" placeholder="filter entries (press / to focus, esc to clear)" spellcheck="false" autocomplete="off">
 </div>
 
-<div class="item">
-   <div class="item">
-      <b style="color:#df625b">PODCASTS</b>
-   </div>
+<pre class="rule">{{ '-' | repeat(78) }}</pre>
 
-   <div class="item">
-      <b>Pretrained</b> [ <a href="https://pretrained.fm/">https://pretrained.fm/</a> ]<br /><br />
-      Weekly AI/ML podcast hosted by Pierce Freeman and Richard Diehl Martinez covering LLM development, infrastructure, and industry trends.<br />
-   </div>
+{{ sectionHeader('01', 'WRITING', 'writing', '2') }}
+<pre class="meta-line"><span class="meta-key">feed</span>: <a class="meta-link" href="/feed.xml">https://mattcavender.com/feed.xml</a>   <span class="meta-key">format</span>: <span>RSS 2.0</span></pre>
+<pre class="rule">{{ '-' | repeat(78) }}</pre>
+{% if postslist | length > 0 %}
+  {% for post in postslist %}
+    {% set e = {
+      num: '01.' + (loop.index | string | padStart(2, '0')),
+      title: post.data.title,
+      href: post.url,
+      meta: '',
+      body: post.data.description,
+      tags: []
+    } %}
+    {{ entry(e, 'WRITING', post.data.date | dateDisplay, '8ch') }}
+  {% endfor %}
+{% else %}
+  <pre class="empty">     -- no entries --</pre>
+{% endif %}
+<pre class="empty is-hidden" data-section="WRITING" data-tpl-empty='     -- no entries match "{q}" --'></pre>
 
-   <div class="item">
-      <b>Working Code</b> [ <a href="https://workingcode.dev/">https://workingcode.dev/</a> ]<br /><br />
-      Weekly developer culture podcast. Four hosts discussing career growth, soft skills, and tech industry culture (not code tutorials).<br />
-   </div>
-</div>
+{{ sectionHeader('02', 'CODE', 'code', '3') }}
+<pre class="meta-line"><span class="meta-key">host</span>: <span>github.com/visionsofparadise</span></pre>
+<pre class="rule">{{ '-' | repeat(78) }}</pre>
+{% for e in sections.CODE %}{{ entry(e, 'CODE') }}{% endfor %}
+<pre class="empty is-hidden" data-section="CODE" data-tpl-empty='     -- no entries match "{q}" --'></pre>
 
-<div class="item">
-   <div class="item">
-      <b style="color:#df625b">AUDIO</b>
-   </div>
+{{ sectionHeader('03', 'PODCASTS', 'podcasts', '4') }}
+<pre class="rule">{{ '-' | repeat(78) }}</pre>
+{% for e in sections.PODCASTS %}{{ entry(e, 'PODCASTS') }}{% endfor %}
+<pre class="empty is-hidden" data-section="PODCASTS" data-tpl-empty='     -- no entries match "{q}" --'></pre>
 
-   <div class="item">
-      <b>sonny banks</b> [ <a href="https://open.spotify.com/artist/6ib0DdCLBUPWNaHztQhrSL">https://open.spotify.com/artist/6ib0DdCLBUPWNaHztQhrSL</a> ]<br /><br />
-      bass house music (est. 2014).<br />
-   </div>
+{{ sectionHeader('04', 'AUDIO', 'audio', '5') }}
+<pre class="rule">{{ '-' | repeat(78) }}</pre>
+{% for e in sections.AUDIO %}{{ entry(e, 'AUDIO') }}{% endfor %}
+<pre class="empty is-hidden" data-section="AUDIO" data-tpl-empty='     -- no entries match "{q}" --'></pre>
 
-   <div class="item">
-      <b>xkore</b> [ <a href="https://open.spotify.com/artist/5cfALf5vLhWIo7VeIh4fQX">https://open.spotify.com/artist/5cfALf5vLhWIo7VeIh4fQX</a> ]<br /><br />
-      dubstep and drum & bass music (est. 2008).<br />
-   </div>
-</div>
+{{ sectionHeader('05', 'CONTACT', 'contact', '6') }}
+{# inner content width = 76; "   [@]  " is 8 chars, email is variable, then pad with spaces #}
+{% set _emailPad = 76 - 8 - (sections.CONTACT_EMAIL | length) %}
+<pre class="contact-block">+----------------------------------------------------------------------------+
+|                                                                            |
+|   [@]  <a href="mailto:{{ sections.CONTACT_EMAIL }}">{{ sections.CONTACT_EMAIL }}</a>{{ ' ' | repeat(_emailPad) }}|
+|                                                                            |
++----------------------------------------------------------------------------+</pre>

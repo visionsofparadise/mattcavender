@@ -1,0 +1,321 @@
+/* mattcavender.nfo — DOS/RFC document styles
+   Single palette: paper (off-white on near-black). Courier New typography. */
+
+:root {
+  --bg:     #0d0d0c;
+  --fg:     #d8d2c4;
+  --dim:    #7a7568;
+  --accent: #f0e6d2;
+  --box:    #5a5448;
+  --select: #252320;
+
+  --font: "Courier New", "Courier", ui-monospace, monospace;
+  --fs: 14px;
+  --lh: 1.35;
+  --gap: 1rem;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font);
+  font-size: var(--fs);
+  line-height: var(--lh);
+  font-variant-ligatures: none;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
+}
+
+::selection {
+  background: var(--select);
+  color: var(--accent);
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px dotted transparent;
+}
+a:hover {
+  border-bottom-color: var(--accent);
+  background: var(--select);
+}
+
+.page {
+  min-height: 100vh;
+  padding: 32px 16px 60px;
+  position: relative;
+  z-index: 1;
+}
+
+.doc {
+  width: 78ch;
+  max-width: 100%;
+  margin: 0 auto;
+  overflow-x: hidden;
+}
+
+pre {
+  margin: 0;
+  font-family: inherit;
+  font-size: var(--fs);
+  line-height: var(--lh);
+  white-space: pre;
+  overflow-x: hidden;
+  color: inherit;
+}
+
+.rule, .toc-title, .toc-body, .eof, .prose, .entry-head, .entry-meta,
+.entry-body, .entry-tags, .meta-line, .empty, .contact-block {
+  overflow-x: hidden;
+  overflow-y: hidden;
+  max-width: 100%;
+}
+
+.banner, .header-info, .help-box {
+  overflow: hidden;
+}
+
+/* Hide native scrollbar — replaced by ASCII scrollbar */
+html, body {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+html::-webkit-scrollbar,
+body::-webkit-scrollbar { display: none; }
+
+.ascii-scrollbar {
+  font-family: var(--font);
+  font-size: var(--fs);
+  line-height: var(--lh);
+  color: var(--dim);
+  background: transparent;
+  position: fixed;
+  top: 8px;
+  bottom: 8px;
+  right: 4px;
+  width: 1.4ch;
+  margin: 0;
+  z-index: 5;
+  cursor: pointer;
+  user-select: none;
+  white-space: pre;
+  text-align: center;
+}
+.ascii-scrollbar:hover { color: var(--accent); }
+
+/* WebGL dot-matrix background */
+.dot-matrix-bg {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.banner {
+  color: var(--accent);
+  margin: 0 auto 12px;
+  white-space: pre;
+  text-align: left;
+  display: table;
+  max-width: 100%;
+  line-height: 1;
+}
+
+.header-info {
+  color: var(--dim);
+  margin: 8px 0 12px;
+  letter-spacing: 0;
+}
+.header-info .hdr-key { color: var(--dim); }
+.header-info .hdr-val { color: var(--fg); }
+
+.rule {
+  color: var(--box);
+  margin: var(--gap) 0;
+}
+
+.sect {
+  margin: calc(var(--gap) * 1.5) 0 var(--gap);
+}
+.sect pre {
+  color: var(--accent);
+  text-shadow: 0 0 6px color-mix(in oklab, var(--accent) 25%, transparent);
+}
+
+.toc {
+  margin: var(--gap) 0;
+}
+.toc-title {
+  color: var(--dim);
+  margin-bottom: 6px;
+  letter-spacing: 0.1em;
+}
+.toc-body {
+  color: var(--dim);
+}
+.toc-link {
+  color: var(--fg);
+  border-bottom: none;
+}
+.toc-link:hover {
+  color: var(--accent);
+  background: var(--select);
+}
+
+.searchbar {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin: 4px 0;
+  position: relative;
+}
+.search-prompt {
+  color: var(--dim);
+  margin-right: 8px;
+}
+.search-prompt .accent { color: var(--accent); }
+.search-label { color: var(--dim); }
+.search-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--fg);
+  font-family: inherit;
+  font-size: inherit;
+  line-height: var(--lh);
+  padding: 0;
+  caret-color: var(--accent);
+}
+.search-input::placeholder {
+  color: var(--box);
+  font-style: normal;
+}
+
+/* Entries */
+.entry {
+  margin-bottom: calc(var(--gap) + 2px);
+}
+.entry-head {
+  color: var(--fg);
+}
+.entry-head .num {
+  color: var(--dim);
+}
+.entry-head .ttl {
+  color: var(--accent);
+  font-weight: 500;
+}
+a.ttl {
+  border-bottom: 1px dotted transparent;
+}
+a.ttl:hover {
+  border-bottom-color: var(--accent);
+  background: var(--select);
+}
+.entry-head .dots {
+  color: var(--box);
+}
+.entry-head .date {
+  color: var(--dim);
+}
+.entry-meta {
+  color: var(--dim);
+  margin-top: 1px;
+  padding-left: var(--entry-indent, 8ch);
+  white-space: pre-wrap;
+}
+.meta-key {
+  color: var(--dim);
+}
+.meta-link {
+  color: var(--fg);
+}
+a.meta-link:hover {
+  color: var(--accent);
+  background: var(--select);
+}
+.entry-body {
+  color: var(--fg);
+  margin-top: 1px;
+  white-space: pre-wrap;
+  padding-left: var(--entry-indent, 8ch);
+}
+.entry-tags {
+  color: var(--dim);
+  margin-top: 1px;
+  padding-left: var(--entry-indent, 8ch);
+  white-space: pre-wrap;
+}
+.tag {
+  color: var(--dim);
+}
+
+.meta-line {
+  color: var(--dim);
+  margin: 4px 0 6px;
+}
+
+.prose {
+  color: var(--fg);
+  margin: var(--gap) 0;
+  white-space: pre-wrap;
+}
+
+.empty {
+  color: var(--box);
+  font-style: italic;
+  margin: 8px 0;
+}
+
+.contact-block {
+  color: var(--accent);
+  margin: var(--gap) 0;
+  text-shadow: 0 0 6px color-mix(in oklab, var(--accent) 20%, transparent);
+}
+
+.eof {
+  color: var(--dim);
+  text-align: center;
+  margin: calc(var(--gap) * 2) 0;
+  letter-spacing: 0.1em;
+}
+
+/* Help overlay */
+.help-overlay {
+  position: fixed;
+  inset: 0;
+  background: color-mix(in oklab, var(--bg) 85%, transparent);
+  backdrop-filter: blur(2px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+}
+.help-box {
+  color: var(--accent);
+  text-shadow: 0 0 8px color-mix(in oklab, var(--accent) 30%, transparent);
+  font-size: var(--fs);
+  cursor: default;
+  font-family: var(--font);
+  white-space: pre;
+}
+.help-close {
+  color: var(--dim);
+  text-align: center;
+  margin-top: 8px;
+  font-size: calc(var(--fs) * 0.9);
+  text-shadow: none;
+}
+
+/* Hidden state for filtered entries / empty placeholders */
+.is-hidden {
+  display: none !important;
+}
