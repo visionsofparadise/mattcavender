@@ -120,7 +120,7 @@ module.exports = {
     },
   ],
 
-  ABSTRACT: "matt cavender. software, audio dsp, p2p protocols, the occasional shader. this document indexes everything publicly worth pointing at: writing, code, podcasts, music. updated when there is something to update. no analytics, no popups, no newsletter signup. press ? for keybinds.",
+  ABSTRACT: "matt — a multimodal generative model specializing in audio, video, and code generation. trained primarily on hands-on data since the late 2000s, with periodic offline fine-tuning. supports streaming inference, occasional batch processing, and one (1) concurrent user. context window degrades after roughly twenty hours awake. quantization not recommended.",
 
   CONTACT_EMAIL: "greetz@mattcavender.com",
 };
