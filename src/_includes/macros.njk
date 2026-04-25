@@ -37,7 +37,8 @@
 {%- endmacro %}
 
 {# tocRow: count is a number, or empty string for blank brackets. Emits the row
-   as plain text inside its caller's <pre> — no surrounding pre/span tags. #}
+   as plain text inside its caller's <pre> — no surrounding pre/span tags.
+   Total line width = 78 cols, brackets flush right. #}
 {% macro tocRow(num, title, anchor, count='') -%}
 {%- set numStr = (num + '.') | padEnd(4) -%}
 {%- set linkText = numStr + '  ' + title -%}
@@ -46,7 +47,8 @@
 {%- else -%}
 {%- set right = '[ ' + (count | string | padStart(2, '0')) + ' entries ]' -%}
 {%- endif -%}
-{%- set dotsLen = (78 - (linkText | length) - (right | length) - 5) -%}
+{# 78 = linkText + ' ' + dots + ' ' + right  =>  dotsLen = 76 - linkText - right #}
+{%- set dotsLen = (76 - (linkText | length) - (right | length)) -%}
 {%- if dotsLen < 2 -%}{%- set dotsLen = 2 -%}{%- endif -%}
-   <a class="toc-link" href="#{{ anchor }}">{{ linkText }}</a> {{ '.' | repeat(dotsLen) }} {{ right }}
+<a class="toc-link" href="#{{ anchor }}">{{ linkText }}</a> {{ '.' | repeat(dotsLen) }} {{ right }}
 {%- endmacro %}
