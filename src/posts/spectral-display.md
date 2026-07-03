@@ -4,18 +4,18 @@ date: 2026-04-12
 description: "How I replaced a pre-computed binary cache with on-demand WebGPU rendering for audio visualization."
 ---
 
-![Combined visualization showing spectrogram, waveform, and loudness](https://raw.githubusercontent.com/visionsofparadise/engineering/main/packages/spectral-display/screenshots/Combined.png)
+![Combined visualization showing spectrogram, waveform, and loudness](https://raw.githubusercontent.com/visionsofparadise/spectrascope/main/packages/spectral-display/screenshots/Combined.png)
 
-I'm building [Engineering](https://github.com/visionsofparadise/engineering), an offline audio processing workstation in the vein of iZotope RX. Users import audio, build processing graphs (denoise, de-click, isolate dialogue, rebalance stems), and inspect results on a timeline. Waveforms and spectrograms are essential to that workflow. The core visualization problem: how do you turn raw PCM samples into a spectrogram and waveform display without making the user wait?
+I'm building [Engineering](https://github.com/visionsofparadise/buffered-audio-graph), an offline audio processing workstation in the vein of iZotope RX. You import audio, build processing graphs (denoise, de-click, isolate dialogue, rebalance stems), and inspect the results on a timeline. Inspecting means waveforms and spectrograms, which means the core display problem: turning raw PCM samples into pictures without making the user wait.
 
-The naive approach is to pre-compute everything at import time. Run an FFT over the entire file, write the frequency magnitudes to a binary file on disk, and load byte ranges into memory when the user scrolls or zooms. This means processing every sample in the file upfront, which takes minutes for long recordings. It also means maintaining binary formats, IPC for range reads, a dual-layer loading system, and a separate rendering pipeline. Changing any analysis parameter (FFT size, frequency scale) means re-processing the entire file.
+The obvious way is to precompute. At import, run an FFT over the entire file, write the magnitudes to a binary cache on disk, and page byte ranges back in as the user scrolls and zooms. I did the obvious thing, and it worked. The cache needed a format, the format needed a loader, the loader needed an IPC layer, and the display needed a dual-layer loading system to feed it. Long recordings took minutes of import before showing a single pixel, and changing any analysis setting, FFT size, frequency scale, meant reprocessing the entire file. None of this was surprising. It's just what a cache costs, and I paid on schedule.
 
-The insight that changed everything was twofold. First, you don't need to compute the spectrogram for the entire file. You only need the samples that are currently visible, at pixel resolution. Second, WebGPU compute shaders are available in the browser, giving you GPU parallel compute that you can't access from Node.js. Each FFT window runs as an independent workgroup, so thousands of them process in parallel. Two compute dispatches produce a final RGBA texture from PCM input. No binary files on disk, no loading pipeline. Settings changes recompute instantly. Load times dropped from minutes to seconds.
+The replacement came from two observations, neither of them deep. You never need the spectrogram of the entire file, only the samples currently on screen, at pixel resolution. And WebGPU compute shaders run in the browser, GPU parallel compute that Node.js can't touch. Each FFT window runs as an independent workgroup, so thousands of them process at once. Two compute dispatches turn PCM input into a finished RGBA texture. The cache, the format, the loader: deleted. Settings changes recompute instantly, and load times dropped from minutes to seconds.
 
-![Spectrogram visualization](https://raw.githubusercontent.com/visionsofparadise/engineering/main/packages/spectral-display/screenshots/Spectrogram.png)
+![Spectrogram visualization](https://raw.githubusercontent.com/visionsofparadise/spectrascope/main/packages/spectral-display/screenshots/Spectrogram.png)
 
-The CPU side handles what doesn't parallelize: waveform min/max, loudness metering (BS.1770-4), RMS, peak, and true peak. All computed in a single streaming pass alongside the GPU work.
+The CPU keeps what doesn't parallelize: waveform min/max, loudness metering (BS.1770-4), RMS, peak, and true peak, all computed in a single streaming pass alongside the GPU work.
 
-I assumed spectrograms were too expensive to compute on the fly. That assumption led to a caching system that was more complex than the computation itself. It turns out that when you can dispatch thousands of FFT windows in parallel, "just compute it when you need it" is both faster and simpler than maintaining a pre-computed cache.
+I assumed spectrograms were too expensive to compute live. It was true once, and WebGPU made it false. The cache was a good solution to a problem that had stopped existing.
 
-Published as [`@e9g/spectral-display`](https://github.com/visionsofparadise/engineering/tree/main/packages/spectral-display).
+Published as [`spectral-display`](https://github.com/visionsofparadise/spectrascope/tree/main/packages/spectral-display).
