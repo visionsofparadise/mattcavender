@@ -54,17 +54,17 @@ title: mattcavender.nfo
 {{ sectionHeader('02', 'CODE', 'code', '3') }}
 <pre class="meta-line"><span class="meta-key">host</span>: <span>github.com/visionsofparadise</span></pre>
 <pre class="rule">{{ '-' | repeat(78) }}</pre>
-{% for e in sections.CODE %}{{ entry(e, 'CODE') }}{% endfor %}
+{% for c in sections.CODE %}{{ entry({ num: '02.' + (loop.index | string | padStart(2, '0')), title: c.title, href: c.href, meta: c.meta, body: c.body, tags: c.tags }, 'CODE') }}{% endfor %}
 <pre class="empty is-hidden" data-section="CODE" data-tpl-empty='     -- no entries match "{q}" --'></pre>
 
 {{ sectionHeader('03', 'PODCASTS', 'podcasts', '4') }}
 <pre class="rule">{{ '-' | repeat(78) }}</pre>
-{% for e in sections.PODCASTS %}{{ entry(e, 'PODCASTS') }}{% endfor %}
+{% for c in sections.PODCASTS %}{{ entry({ num: '03.' + (loop.index | string | padStart(2, '0')), title: c.title, href: c.href, meta: c.meta, body: c.body, tags: c.tags }, 'PODCASTS') }}{% endfor %}
 <pre class="empty is-hidden" data-section="PODCASTS" data-tpl-empty='     -- no entries match "{q}" --'></pre>
 
 {{ sectionHeader('04', 'AUDIO', 'audio', '5') }}
 <pre class="rule">{{ '-' | repeat(78) }}</pre>
-{% for e in sections.AUDIO %}{{ entry(e, 'AUDIO') }}{% endfor %}
+{% for c in sections.AUDIO %}{{ entry({ num: '04.' + (loop.index | string | padStart(2, '0')), title: c.title, href: c.href, meta: c.meta, body: c.body, tags: c.tags }, 'AUDIO') }}{% endfor %}
 <pre class="empty is-hidden" data-section="AUDIO" data-tpl-empty='     -- no entries match "{q}" --'></pre>
 
 {{ sectionHeader('05', 'CONTACT', 'contact', '6') }}

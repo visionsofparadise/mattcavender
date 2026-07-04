@@ -1,7 +1,20 @@
 module.exports = {
   CODE: [
     {
-      num: "02.01",
+      title: "vst-demon",
+      href: "https://github.com/visionsofparadise/vst-demon",
+      meta: "github.com/visionsofparadise/vst-demon",
+      body: "Desktop VST3 preset manager. Scans your installed plugins and opens any one in its own GUI with a click, saving state to a .vstpreset as you dial in a sound — no DAW required.",
+      tags: ["vst3", "electron", "audio"],
+    },
+    {
+      title: "vst-demon-cli",
+      href: "https://github.com/visionsofparadise/vst-demon-cli",
+      meta: "github.com/visionsofparadise/vst-demon-cli",
+      body: "Headless VST3 preset host. Opens a plugin's native editor in a bare window and auto-saves its state to a .vstpreset. A direct VST3 SDK host in C++, cross-platform, and the engine behind the VST Demon app.",
+      tags: ["vst3", "c++", "audio"],
+    },
+    {
       title: "pictel",
       href: "https://github.com/visionsofparadise/pictel/tree/main/packages/pictel",
       meta: "github.com/visionsofparadise/pictel/.../pictel",
@@ -9,7 +22,6 @@ module.exports = {
       tags: ["typescript", "react", "image"],
     },
     {
-      num: "02.02",
       title: "@pictel/effects",
       href: "https://github.com/visionsofparadise/pictel/tree/main/packages/effects",
       meta: "github.com/visionsofparadise/pictel/.../effects",
@@ -17,7 +29,6 @@ module.exports = {
       tags: ["image", "effects"],
     },
     {
-      num: "02.03",
       title: "@pictel/ml",
       href: "https://github.com/visionsofparadise/pictel/tree/main/packages/ml",
       meta: "github.com/visionsofparadise/pictel/.../ml",
@@ -25,7 +36,6 @@ module.exports = {
       tags: ["ml", "webgpu", "image"],
     },
     {
-      num: "02.04",
       title: "@pictel/cli",
       href: "https://github.com/visionsofparadise/pictel/tree/main/packages/cli",
       meta: "github.com/visionsofparadise/pictel/.../cli",
@@ -33,7 +43,6 @@ module.exports = {
       tags: ["image", "cli", "rendering"],
     },
     {
-      num: "02.05",
       title: "descript-color-grade",
       href: "https://github.com/visionsofparadise/descript-color-grade",
       meta: "github.com/visionsofparadise/descript-color-grade",
@@ -41,7 +50,6 @@ module.exports = {
       tags: ["typescript", "shaders"],
     },
     {
-      num: "02.06",
       title: "spectral-display",
       href: "https://github.com/visionsofparadise/spectrascope/tree/main/packages/spectral-display",
       meta: "github.com/visionsofparadise/spectrascope/.../spectral-display",
@@ -49,7 +57,6 @@ module.exports = {
       tags: ["webgpu", "audio", "dsp"],
     },
     {
-      num: "02.07",
       title: "@buffered-audio/nodes",
       href: "https://github.com/visionsofparadise/buffered-audio-graph/tree/main/packages/buffered-audio-nodes",
       meta: "github.com/visionsofparadise/buffered-audio-graph/.../nodes",
@@ -57,7 +64,6 @@ module.exports = {
       tags: ["audio", "ml", "onnx"],
     },
     {
-      num: "02.08",
       title: "@buffered-audio/core",
       href: "https://github.com/visionsofparadise/buffered-audio-graph/tree/main/packages/buffered-audio-nodes-core",
       meta: "github.com/visionsofparadise/buffered-audio-graph/.../core",
@@ -65,7 +71,6 @@ module.exports = {
       tags: ["audio", "graph"],
     },
     {
-      num: "02.09",
       title: "@buffered-audio/utils",
       href: "https://github.com/visionsofparadise/buffered-audio-graph/tree/main/packages/buffered-audio-nodes-utils",
       meta: "github.com/visionsofparadise/buffered-audio-graph/.../utils",
@@ -73,7 +78,6 @@ module.exports = {
       tags: ["audio", "dsp"],
     },
     {
-      num: "02.10",
       title: "DICES",
       href: "https://github.com/visionsofparadise/dices/tree/main/packages/dices",
       meta: "github.com/visionsofparadise/dices",
@@ -81,7 +85,6 @@ module.exports = {
       tags: ["crypto", "p2p", "pqc"],
     },
     {
-      num: "02.11",
       title: "DICE",
       href: "https://github.com/visionsofparadise/dice/tree/main/packages/client",
       meta: "github.com/visionsofparadise/dice",
@@ -89,7 +92,6 @@ module.exports = {
       tags: ["p2p", "networking"],
     },
     {
-      num: "02.12",
       title: "bufferfy",
       href: "https://github.com/visionsofparadise/bufferfy",
       meta: "github.com/visionsofparadise/bufferfy",
@@ -97,7 +99,6 @@ module.exports = {
       tags: ["typescript", "serialization"],
     },
     {
-      num: "02.13",
       title: "kademlia-table",
       href: "https://github.com/visionsofparadise/kademlia-table",
       meta: "github.com/visionsofparadise/kademlia-table",
@@ -105,7 +106,6 @@ module.exports = {
       tags: ["p2p", "dht"],
     },
     {
-      num: "02.14",
       title: "sqs-mock",
       href: "https://github.com/visionsofparadise/sqs-mock",
       meta: "github.com/visionsofparadise/sqs-mock",
@@ -116,7 +116,6 @@ module.exports = {
 
   PODCASTS: [
     {
-      num: "03.01",
       title: "Pretrained",
       href: "https://pretrained.fm/",
       meta: "pretrained.fm",
@@ -124,7 +123,6 @@ module.exports = {
       tags: ["ai", "ml"],
     },
     {
-      num: "03.02",
       title: "Working Code",
       href: "https://workingcode.dev/",
       meta: "workingcode.dev",
@@ -135,7 +133,6 @@ module.exports = {
 
   AUDIO: [
     {
-      num: "04.01",
       title: "sonny banks",
       href: "https://open.spotify.com/artist/6ib0DdCLBUPWNaHztQhrSL",
       meta: "open.spotify.com/artist/6ib0DdCLBUPWNaHztQhrSL",
@@ -143,7 +140,6 @@ module.exports = {
       tags: ["bass-house"],
     },
     {
-      num: "04.02",
       title: "xkore",
       href: "https://open.spotify.com/artist/5cfALf5vLhWIo7VeIh4fQX",
       meta: "open.spotify.com/artist/5cfALf5vLhWIo7VeIh4fQX",
